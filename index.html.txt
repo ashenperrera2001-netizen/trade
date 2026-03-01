@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Master Sinhala - සිංහලෙන් Trading ඉගෙන ගන්න</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<base target="_blank">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span>Trading Master</span>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">මුල් පිටුව</a></li>
+                <li><a href="#technical" class="nav-link">Technical</a></li>
+                <li><a href="#fundamental" class="nav-link">Fundamental</a></li>
+                <li><a href="#price-action" class="nav-link">Price Action</a></li>
+                <li><a href="#indicators" class="nav-link">Indicators</a></li>
+                <li><a href="#contact" class="nav-link">සම්බන්ධ වන්න</a></li>
+                <li>
+                    <button id="darkModeToggle" class="dark-mode-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="stock-ticker">
+                <div class="ticker-wrap">
+                    <div class="ticker">
+                        <span>BTC/USD $67,234.00 ▲ 2.4%</span>
+                        <span>ETH/USD $3,456.78 ▲ 1.8%</span>
+                        <span>AAPL $189.45 ▼ 0.5%</span>
+                        <span>GOOGL $142.67 ▲ 1.2%</span>
+                        <span>TSLA $248.90 ▼ 1.1%</span>
+                        <span>MSFT $378.12 ▲ 0.9%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-graduation-cap"></i>
+                <span>සිංහලෙන් Trading අධ්‍යාපනය</span>
+            </div>
+            
+            <h1 class="hero-title">
+                සිංහලෙන් Trading<br>
+                <span class="highlight">විශ්ලේෂණය</span> ඉගෙන ගන්න
+            </h1>
+            
+            <p class="hero-subtitle">
+                නවකයින්ට වෘත්තීය මට්ටමේ trading දැනුම ලබා දීම. 
+                Technical, Fundamental සහ Price Action ක්‍රම ඉගෙන ගන්න.
+            </p>
+            
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('technical')">
+                    <span>පාඩම් ආරම්භ කරන්න</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+                    <i class="fas fa-play-circle"></i>
+                    <span>නොමිලේ උපදෙස්</span>
+                </button>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">ශිෂ්‍යයන්</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">පාඩම්</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">සහාය</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-chart">
+            <div class="chart-container">
+                <canvas id="heroChart"></canvas>
+                <div class="chart-overlay">
+                    <div class="price-tag">Buy Zone</div>
+                    <div class="price-tag sell">Sell Zone</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ඔබ ඉගෙන ගන්න දේ</span>
+                <h2>Trading ක්‍රම තුනක්</h2>
+                <p>වෙළඳපොළ විශ්ලේෂණය කිරීමට භාවිතා කරන ප්‍රධාන ක්‍රම</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card" onclick="scrollToSection('technical')">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Technical Analysis</h3>
+                    <p>ප්‍රස්ථාර රටා, trend lines සහ support/resistance මට්ටම් භාවිතයෙන් වෙළඳපොළ විශ්ලේෂණය කරන්න.</p>
+                    <div class="feature-hover">
+                        <span>තවත් දැනගන්න</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="feature-card" onclick="scrollToSection('fundamental')">
+                    <div class="feature-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>Fundamental Analysis</h3>
+                    <p>ආර්ථික වාර්තා, ප්‍රවෘත්ති සහ සමාගම් දත්ත භාවිතයෙන් දිගුකාලීන තීරණ ගන්න.</p>
+                    <div class="feature-hover">
+                        <span>තවත් දැනගන්න</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="feature-card" onclick="scrollToSection('price-action')">
+                    <div class="feature-icon">
+                        <i class="fas fa-candlestick-chart"></i>
+                    </div>
+                    <h3>Price Action</h3>
+                    <p>Candlestick රටා සහ market structure හඳුනාගෙන indicator නොමැතිව trade කරන්න.</p>
+                    <div class="feature-hover">
+                        <span>තවත් දැනගන්න</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Analysis Section -->
+    <section id="technical" class="technical-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ප්‍රස්ථාර විශ්ලේෂණය</span>
+                <h2>Technical Analysis</h2>
+                <p>වෙළඳපොළ චලනය අනාවැකි කීමේ විද්‍යාව</p>
+            </div>
+
+            <div class="tech-grid">
+                <!-- Support & Resistance -->
+                <div class="tech-card">
+                    <div class="tech-header" onclick="toggleAccordion(this)">
+                        <div class="tech-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div class="tech-title">
+                            <h3>Support & Resistance</h3>
+                            <span>මිල මට්ටම් හඳුනාගැනීම</span>
+                        </div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="tech-content">
+                        <div class="tech-visual">
+                            <div class="sr-demo">
+                                <div class="price-line resistance">Resistance - $150</div>
+                                <div class="price-zone">Trading Range</div>
+                                <div class="price-line support">Support - $120</div>
+                            </div>
+                        </div>
+                        <div class="tech-text">
+                            <p><strong>Support:</strong> මිල පහළට වැටීම නවත්වන මට්ටම. මිල මෙම මට්ටමට ළඟාවන විට ඉහළට යාමට ඉඩ ඇත.</p>
+                            <p><strong>Resistance:</strong> මිල ඉහළට යාම නවත්වන මට්ටම. මිල මෙම මට්ටමට ළඟාවන විට පහළට යාමට ඉඩ ඇත.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> මිල මට්ටම් බිඳ දමන විට ඒවා ප්‍රතිලෝම වේ</li>
+                                <li><i class="fas fa-check"></i> කාලසීමාවට අනුව මට්ටම් ශක්තිමත් වේ</li>
+                                <li><i class="fas fa-check"></i> Round numbers (100, 150) වැදගත් මට්ටම් වේ</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trend Lines -->
+                <div class="tech-card">
+                    <div class="tech-header" onclick="toggleAccordion(this)">
+                        <div class="tech-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="tech-title">
+                            <h3>Trend Lines</h3>
+                            <span>ප්‍රවණතා රේඛා ඇඳීම</span>
+                        </div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="tech-content">
+                        <div class="tech-visual">
+                            <div class="trend-demo">
+                                <div class="trend-line up"></div>
+                                <div class="trend-label">Uptrend - Higher Highs</div>
+                                <div class="trend-line down"></div>
+                                <div class="trend-label">Downtrend - Lower Lows</div>
+                            </div>
+                        </div>
+                        <div class="tech-text">
+                            <p><strong>Uptrend:</strong> ඉහළ lows සහ ඉහළ highs සාදන රේඛාව. Buy කිරීමට සුදුසු කාලය.</p>
+                            <p><strong>Downtrend:</strong> පහළ highs සහ පහළ lows සාදන රේඛාව. Sell කිරීමට හෝ ඉවත්වීමට සුදුසුය.</p>
+                            <div class="tip-box">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Tip: Trend line තුන් වතාවක් ස්පර්ශ වන විට වලංගුත්වය වැඩියි.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Patterns -->
+                <div class="tech-card">
+                    <div class="tech-header" onclick="toggleAccordion(this)">
+                        <div class="tech-icon">
+                            <i class="fas fa-shapes"></i>
+                        </div>
+                        <div class="tech-title">
+                            <h3>Chart Patterns</h3>
+                            <span>ප්‍රස්ථාර රටා හඳුනාගැනීම</span>
+                        </div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="tech-content">
+                        <div class="pattern-grid">
+                            <div class="pattern-item">
+                                <div class="pattern-shape head-shoulders"></div>
+                                <span>Head & Shoulders</span>
+                                <small>Reversal Pattern</small>
+                            </div>
+                            <div class="pattern-item">
+                                <div class="pattern-shape triangle"></div>
+                                <span>Triangle</span>
+                                <small>Continuation Pattern</small>
+                            </div>
+                            <div class="pattern-item">
+                                <div class="pattern-shape double-top"></div>
+                                <span>Double Top</span>
+                                <small>Bearish Reversal</small>
+                            </div>
+                        </div>
+                        <div class="tech-text">
+                            <p>Chart patterns මිල චලනයේ අනාගත දිශාව පුරෝගචනය කිරීමට උපකාරී වේ.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fundamental Analysis Section -->
+    <section id="fundamental" class="fundamental-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">මූලික විශ්ලේෂණය</span>
+                <h2>Fundamental Analysis</h2>
+                <p>ආර්ථික දත්ත හරහා වෙළඳපොළ වටහාගැනීම</p>
+            </div>
+
+            <div class="fund-grid">
+                <div class="fund-card news-card">
+                    <div class="fund-image">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="fund-content">
+                        <h3>News Impact</h3>
+                        <p>ප්‍රවෘත්ති වාර්තා වෙළඳපොළ මත කෙතරම් බලපෑම් කරයිද?</p>
+                        <ul class="fund-list">
+                            <li>
+                                <span class="impact high">High</span>
+                                <span>NFP, Interest Rates, GDP</span>
+                            </li>
+                            <li>
+                                <span class="impact medium">Medium</span>
+                                <span>CPI, Retail Sales</span>
+                            </li>
+                            <li>
+                                <span class="impact low">Low</span>
+                                <span>Consumer Confidence</span>
+                            </li>
+                        </ul>
+                        <div class="news-ticker-sim">
+                            <div class="news-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>Fed Rate Decision: 5.25% (Expected)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fund-card economic-card">
+                    <div class="fund-image">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="fund-content">
+                        <h3>Economic Reports</h3>
+                        <p>ප්‍රධාන ආර්ථික දර්ශක වලින් වෙළඳපොළ කියවීම</p>
+                        <div class="eco-calendar">
+                            <div class="eco-item">
+                                <div class="eco-date">Today</div>
+                                <div class="eco-event">
+                                    <strong>US Non-Farm Payrolls</strong>
+                                    <span>08:30 AM EST</span>
+                                </div>
+                                <div class="eco-impact red">★★★</div>
+                            </div>
+                            <div class="eco-item">
+                                <div class="eco-date">Tomorrow</div>
+                                <div class="eco-event">
+                                    <strong>CPI Data Release</strong>
+                                    <span>08:30 AM EST</span>
+                                </div>
+                                <div class="eco-impact red">★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fund-card company-card">
+                    <div class="fund-image">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="fund-content">
+                        <h3>Company Analysis</h3>
+                        <p>සමාගම් මූල්‍ය වාර්තා විශ්ලේෂණය</p>
+                        <div class="metrics-grid">
+                            <div class="metric">
+                                <span class="metric-label">P/E Ratio</span>
+                                <span class="metric-value">24.5</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">EPS</span>
+                                <span class="metric-value">$3.42</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Revenue</span>
+                                <span class="metric-value">$89B</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Debt/Eq</span>
+                                <span class="metric-value">0.45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Action Section -->
+    <section id="price-action" class="price-action-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">මිල ක්‍රියාකාරකම්</span>
+                <h2>Price Action Trading</h2>
+                <p>Indicator නොමැතිව වෙළඳපොළ කියවීමේ කලාව</p>
+            </div>
+
+            <div class="pa-container">
+                <!-- Interactive Candlestick Demo -->
+                <div class="pa-demo">
+                    <h3>Interactive Candlestick Patterns</h3>
+                    <p>රටාව මත click කර විස්තරය බලන්න</p>
+                    
+                    <div class="candlestick-chart" id="candleChart">
+                        <div class="candle-row">
+                            <div class="candle bear" onclick="showPattern('bearish-engulfing')">
+                                <div class="wick top"></div>
+                                <div class="body"></div>
+                                <div class="wick bottom"></div>
+                            </div>
+                            <div class="candle bull" onclick="showPattern('bullish-engulfing')">
+                                <div class="wick top"></div>
+                                <div class="body"></div>
+                                <div class="wick bottom"></div>
+                            </div>
+                            <div class="candle doji" onclick="showPattern('doji')">
+                                <div class="wick top"></div>
+                                <div class="body"></div>
+                                <div class="wick bottom"></div>
+                            </div>
+                            <div class="candle hammer" onclick="showPattern('hammer')">
+                                <div class="wick top"></div>
+                                <div class="body"></div>
+                                <div class="wick bottom long"></div>
+                            </div>
+                        </div>
+                        <div class="chart-labels">
+                            <span>Bearish</span>
+                            <span>Bullish</span>
+                            <span>Doji</span>
+                            <span>Hammer</span>
+                        </div>
+                    </div>
+
+                    <div id="patternInfo" class="pattern-info">
+                        <div class="pattern-display">
+                            <i class="fas fa-hand-pointer"></i>
+                            <p>ඉහත candlestick එකක් මත click කරන්න</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Breakouts Section -->
+                <div class="pa-concepts">
+                    <div class="concept-card" onclick="toggleConcept(this)">
+                        <div class="concept-header">
+                            <i class="fas fa-arrow-trend-up"></i>
+                            <h4>Breakouts</h4>
+                            <i class="fas fa-plus toggle-btn"></i>
+                        </div>
+                        <div class="concept-body">
+                            <p>මිල නිශ්චිත range එකකින් පිටතට යාම breakouts ලෙස හැඳින්වේ.</p>
+                            <div class="breakout-types">
+                                <div class="breakout-type">
+                                    <span class="type-label">Bullish Breakout</span>
+                                    <p>Resistance මට්ටම ඉහළින් බිඳ දමයි</p>
+                                </div>
+                                <div class="breakout-type">
+                                    <span class="type-label bear">Bearish Breakout</span>
+                                    <p>Support මට්ටම පහළින් බිඳ දමයි</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-card" onclick="toggleConcept(this)">
+                        <div class="concept-header">
+                            <i class="fas fa-sitemap"></i>
+                            <h4>Market Structure</h4>
+                            <i class="fas fa-plus toggle-btn"></i>
+                        </div>
+                        <div class="concept-body">
+                            <p>වෙළඳපොළේ තත්ත්වය හඳුනාගැනීම:</p>
+                            <ul>
+                                <li><strong>Uptrend:</strong> Higher Highs + Higher Lows</li>
+                                <li><strong>Downtrend:</strong> Lower Highs + Lower Lows</li>
+                                <li><strong>Sideways:</strong> Equal Highs + Equal Lows</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Indicators Section -->
+    <section id="indicators" class="indicators-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">තාක්ෂණික දර්ශක</span>
+                <h2>Trading Indicators</h2>
+                <p>වෙළඳපොළ විශ්ලේෂණයට භාවිතා කරන මෙවලම්</p>
+            </div>
+
+            <div class="indicators-grid">
+                <!-- RSI -->
+                <div class="indicator-card">
+                    <div class="indicator-header">
+                        <div class="indicator-badge">Oscillator</div>
+                        <h3>RSI (Relative Strength Index)</h3>
+                    </div>
+                    <div class="indicator-visual">
+                        <div class="rsi-gauge">
+                            <div class="gauge-bg"></div>
+                            <div class="gauge-fill" style="--value: 65;"></div>
+                            <div class="gauge-needle" style="--rotation: 117deg;"></div>
+                            <div class="gauge-labels">
+                                <span>0</span>
+                                <span>30</span>
+                                <span>70</span>
+                                <span>100</span>
+                            </div>
+                        </div>
+                        <div class="rsi-zones">
+                            <div class="zone oversold">Oversold<br>&lt;30</div>
+                            <div class="zone neutral">Neutral<br>30-70</div>
+                            <div class="zone overbought">Overbought<br>&gt;70</div>
+                        </div>
+                    </div>
+                    <div class="indicator-info">
+                        <p>මිලේ momentum මැනීමේ දර්ශකයකි. 30 ට අඩු නම් oversold (buy), 70 ට වැඩි නම් overbought (sell).</p>
+                        <div class="indicator-signal">
+                            <span class="signal-label">Current Signal:</span>
+                            <span class="signal-value neutral">Neutral Zone</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MACD -->
+                <div class="indicator-card">
+                    <div class="indicator-header">
+                        <div class="indicator-badge">Trend</div>
+                        <h3>MACD</h3>
+                    </div>
+                    <div class="indicator-visual macd-visual">
+                        <div class="macd-chart">
+                            <div class="macd-line"></div>
+                            <div class="signal-line"></div>
+                            <div class="histogram">
+                                <div class="bar positive"></div>
+                                <div class="bar positive"></div>
+                                <div class="bar negative"></div>
+                                <div class="bar negative"></div>
+                            </div>
+                        </div>
+                        <div class="macd-labels">
+                            <span class="macd">MACD Line</span>
+                            <span class="signal">Signal Line</span>
+                        </div>
+                    </div>
+                    <div class="indicator-info">
+                        <p>Moving Average Convergence Divergence. Trend direction සහ momentum හඳුනාගැනීමට භාවිතා වේ.</p>
+                        <ul class="macd-rules">
+                            <li>MACD Signal line උඩින් යන විට Buy</li>
+                            <li>MACD Signal line පහළින් යන විට Sell</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Moving Average -->
+                <div class="indicator-card">
+                    <div class="indicator-header">
+                        <div class="indicator-badge">Trend</div>
+                        <h3>Moving Average</h3>
+                    </div>
+                    <div class="indicator-visual ma-visual">
+                        <div class="ma-chart">
+                            <div class="price-line-chart"></div>
+                            <div class="ma-20">MA 20</div>
+                            <div class="ma-50">MA 50</div>
+                        </div>
+                        <div class="ma-cross">
+                            <div class="cross golden">
+                                <span>Golden Cross</span>
+                                <small>MA 20 > MA 50 (Buy)</small>
+                            </div>
+                            <div class="cross death">
+                                <span>Death Cross</span>
+                                <small>MA 20 < MA 50 (Sell)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="indicator-info">
+                        <p>මිලේ සාමාන්‍යය ගණනය කරන රේඛාව. Simple (SMA) සහ Exponential (EMA) යනුවෙන් වර්ග දෙකකි.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="section-header left">
+                        <span class="section-tag">සම්බන්ධ වන්න</span>
+                        <h2>අප හා සම්බන්ධ වන්න</h2>
+                        <p>Trading ගැන තවත් තොරතුරු අවශ්‍යද? පණිවිඩයක් එවන්න.</p>
+                    </div>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <span>Instructor</span>
+                                <strong>Sandaru Piyumika</strong>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span>Email</span>
+                                <strong>info@tradingmastersinhala.com</strong>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <span>Location</span>
+                                <strong>Sri Lanka</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" class="contact-form" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">ඔබගේ නම</label>
+                            <input type="text" id="name" name="name" required>
+                            <i class="fas fa-user"></i>
+                            <span class="error-message" id="nameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email ලිපිනය</label>
+                            <input type="email" id="email" name="email" required>
+                            <i class="fas fa-envelope"></i>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">විෂය</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">තෝරන්න</option>
+                                <option value="technical">Technical Analysis ගැන</option>
+                                <option value="fundamental">Fundamental Analysis ගැන</option>
+                                <option value="price-action">Price Action ගැන</option>
+                                <option value="general">සාමාන්‍ය ප්‍රශ්නයක්</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">පණිවිඩය</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <span class="error-message" id="messageError"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-submit">
+                            <span>පණිවිඩය යවන්න</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+
+                    <div id="successMessage" class="success-message">
+                        <div class="success-content">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>ස්තුතියි!</h3>
+                            <p>ඔබගේ පණිවිඩය යවන ලදී. ඉක්මනින් පිළිතුරු දෙන්නෙමු.</p>
+                            <button onclick="resetForm()" class="btn btn-secondary">තවත් පණිවිඩයක්</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Trading Master Sinhala</span>
+                    </div>
+                    <p>සිංහලෙන් trading අධ්‍යාපනය ලබා දීමේ අපේක්ෂාවෙන්.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>ප්‍රධාන මෙනුව</h4>
+                    <ul>
+                        <li><a href="#home">මුල් පිටුව</a></li>
+                        <li><a href="#technical">Technical</a></li>
+                        <li><a href="#fundamental">Fundamental</a></li>
+                        <li><a href="#contact">සම්බන්ධ වන්න</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>සමාජ මාධ්‍ය</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                        <li><a href="#"><i class="fab fa-telegram"></i> Telegram</a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sandaru Piyumika. සියලු හිමිකම් ඇවිරිණි.</p>
+                <p class="made-with">Made with <i class="fas fa-heart"></i> for Sri Lankan Traders</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
